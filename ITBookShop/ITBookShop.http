@@ -1,0 +1,6 @@
+@ITBookShop_HostAddress = http://localhost:5272
+
+GET {{ITBookShop_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

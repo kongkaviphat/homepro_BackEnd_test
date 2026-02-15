@@ -46,7 +46,8 @@ app.Run();
 
 public record RegisterDto(string Username, string Password, string Fullname);
 public record LoginDto(string Username, string Password);
-public record LikeBookRequestDto(string BookId);
+public record LikeBookRequestDto(int UserId, string BookId);
+
 
 public class ApiBookResponse
 {

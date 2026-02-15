@@ -2,8 +2,7 @@ namespace ItBookShop.Models;
 
 public class Book
 {
-    public int Id { get; set; }
-
+    public int UserId { get; set; }
     public string Isbn13 { get; set; } = string.Empty;
     public string Title { get; set; } = string.Empty;
     public string Subtitle { get; set; } = string.Empty;

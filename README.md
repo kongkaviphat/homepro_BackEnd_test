@@ -153,9 +153,70 @@ Used API:
 
 ---
 
+**Below are the APIs that you would need to implement:
+
+1. POST /login </br>
+This is the user authentication API </br>
+Request: {username: xxx , password: xxxx} </br>
+
+```
+{
+  "username": "test1",
+  "password": "1234"
+}
+
+{
+    "token": "..........",
+    "userId": 1,
+    "username": "test1"
+}
+```
+
+2. POST /register </br>
+Create a user account and store user information into database </br>
+Request: {username:xxxx, password: xxxx, fullname:xxxx} </br>
 
 
+```
+{
+  "username": "test2",
+  "password": "qxcz",
+  "fullname": "admin"
+}
 
+{
+    "message": "Register successful"
+}
+```
 
+3. GET /books </br>
+Get the list of books from https://api.itbook.store/1.0/search/mysql and returns the list sorted </br>
+to alphabet (a-z) by book title </br>
+
+4. POST: /user/like </br>
+Like book and store the book that the user like in the database </br>
+Request: { user_id: xxx , book_id: 1} </br>
+ 
+ Authorization </br>
+  Auth Type
+  Bearer Token
+  ```
+   xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+ ```
+input
+```
+{
+  "userId":1,
+  "bookId": "9780471269229"
+}
+```
+output 
+```
+{
+    "status": "unliked",
+    "userId": 1,
+    "bookId": "9780471269229"
+}
+```
 
 

@@ -18,24 +18,16 @@ namespace ITBookShop.Migrations
 
             modelBuilder.Entity("ItBookShop.Models.Book", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<string>("Image")
-                        .IsRequired()
+                    b.Property<string>("Isbn13")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("Isbn13")
-                        .IsRequired()
+                    b.Property<string>("Image")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Price")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Subtitle")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Title")
@@ -43,38 +35,24 @@ namespace ITBookShop.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Url")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.HasKey("Id");
+                    b.HasKey("Isbn13");
 
                     b.ToTable("Books");
                 });
 
             modelBuilder.Entity("ItBookShop.Models.LikedBook", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<string>("BookId")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Image")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Title")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
                     b.Property<int>("UserId")
                         .HasColumnType("INTEGER");
 
-                    b.HasKey("Id");
+                    b.Property<string>("BookId")
+                        .HasColumnType("TEXT");
 
-                    b.HasIndex("UserId");
+                    b.HasKey("UserId", "BookId");
+
+                    b.HasIndex("BookId");
 
                     b.ToTable("LikedBooks");
                 });
@@ -104,13 +82,26 @@ namespace ITBookShop.Migrations
 
             modelBuilder.Entity("ItBookShop.Models.LikedBook", b =>
                 {
+                    b.HasOne("ItBookShop.Models.Book", "Book")
+                        .WithMany("LikedBooks")
+                        .HasForeignKey("BookId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("ItBookShop.Models.User", "User")
                         .WithMany("LikedBooks")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.Navigation("Book");
+
                     b.Navigation("User");
+                });
+
+            modelBuilder.Entity("ItBookShop.Models.Book", b =>
+                {
+                    b.Navigation("LikedBooks");
                 });
 
             modelBuilder.Entity("ItBookShop.Models.User", b =>

@@ -9,6 +9,7 @@ D:\BackEndTest\ITBookShop\bin\Debug\net8.0\Azure.Core.dll
 D:\BackEndTest\ITBookShop\bin\Debug\net8.0\Azure.Identity.dll
 D:\BackEndTest\ITBookShop\bin\Debug\net8.0\BCrypt.Net-Next.dll
 D:\BackEndTest\ITBookShop\bin\Debug\net8.0\Humanizer.dll
+D:\BackEndTest\ITBookShop\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 D:\BackEndTest\ITBookShop\bin\Debug\net8.0\Microsoft.AspNetCore.OpenApi.dll
 D:\BackEndTest\ITBookShop\bin\Debug\net8.0\Microsoft.Bcl.AsyncInterfaces.dll
 D:\BackEndTest\ITBookShop\bin\Debug\net8.0\Microsoft.CodeAnalysis.dll

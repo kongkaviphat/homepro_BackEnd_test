@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ITBookShop.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20260214074946_InitialCreate")]
+    [Migration("20260215092704_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -19,30 +19,43 @@ namespace ITBookShop.Migrations
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "8.0.0");
 
-            modelBuilder.Entity("ItBookShop.Models.LikedBook", b =>
+            modelBuilder.Entity("ItBookShop.Models.Book", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<string>("BookId")
-                        .IsRequired()
+                    b.Property<string>("Isbn13")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Image")
-                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Price")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Subtitle")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Title")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("Url")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Isbn13");
+
+                    b.ToTable("Books");
+                });
+
+            modelBuilder.Entity("ItBookShop.Models.LikedBook", b =>
+                {
                     b.Property<int>("UserId")
                         .HasColumnType("INTEGER");
 
-                    b.HasKey("Id");
+                    b.Property<string>("BookId")
+                        .HasColumnType("TEXT");
 
-                    b.HasIndex("UserId");
+                    b.HasKey("UserId", "BookId");
+
+                    b.HasIndex("BookId");
 
                     b.ToTable("LikedBooks");
                 });
@@ -72,13 +85,26 @@ namespace ITBookShop.Migrations
 
             modelBuilder.Entity("ItBookShop.Models.LikedBook", b =>
                 {
+                    b.HasOne("ItBookShop.Models.Book", "Book")
+                        .WithMany("LikedBooks")
+                        .HasForeignKey("BookId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("ItBookShop.Models.User", "User")
                         .WithMany("LikedBooks")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.Navigation("Book");
+
                     b.Navigation("User");
+                });
+
+            modelBuilder.Entity("ItBookShop.Models.Book", b =>
+                {
+                    b.Navigation("LikedBooks");
                 });
 
             modelBuilder.Entity("ItBookShop.Models.User", b =>

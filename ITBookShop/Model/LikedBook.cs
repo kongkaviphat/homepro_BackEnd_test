@@ -2,11 +2,9 @@ namespace ItBookShop.Models;
 
 public class LikedBook
 {
-    public int Id { get; set; }
-    public string BookId { get; set; } = string.Empty;
-    public string Title { get; set; } = string.Empty;
-    public string Image { get; set; } = string.Empty;
-
     public int UserId { get; set; }
-    public User? User { get; set; }
+    public User User { get; set; } = null!;   // ✅ ต้องมีบรรทัดนี้
+
+    public string BookId { get; set; } = null!;
+    public Book Book { get; set; } = null!;   // ✅ และต้องมีอันนี้ด้วย
 }

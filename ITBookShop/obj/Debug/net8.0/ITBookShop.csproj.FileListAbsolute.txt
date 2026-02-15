@@ -147,6 +147,7 @@ D:\BackEndTest\ITBookShop\obj\Debug\net8.0\ITBookShop.AssemblyInfo.cs
 D:\BackEndTest\ITBookShop\obj\Debug\net8.0\ITBookShop.csproj.CoreCompileInputs.cache
 D:\BackEndTest\ITBookShop\obj\Debug\net8.0\ITBookShop.MvcApplicationPartsAssemblyInfo.cs
 D:\BackEndTest\ITBookShop\obj\Debug\net8.0\ITBookShop.MvcApplicationPartsAssemblyInfo.cache
+D:\BackEndTest\ITBookShop\obj\Debug\net8.0\ITBookShop.sourcelink.json
 D:\BackEndTest\ITBookShop\obj\Debug\net8.0\staticwebassets.build.json
 D:\BackEndTest\ITBookShop\obj\Debug\net8.0\staticwebassets.development.json
 D:\BackEndTest\ITBookShop\obj\Debug\net8.0\staticwebassets\msbuild.ITBookShop.Microsoft.AspNetCore.StaticWebAssets.props

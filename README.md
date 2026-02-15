@@ -11,6 +11,7 @@ cd ItBookShop
 2️⃣ Install EF Core Tool (Version 8)
 ```
 dotnet tool install --global dotnet-ef --version 8.*
+dotnet add package Microsoft.AspNetCore.Authentication.JwtBearer --version 8.0.0
 ```
 3️⃣ Create Database
 ```
